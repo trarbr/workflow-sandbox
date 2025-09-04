@@ -1,0 +1,13 @@
+name: Hello World
+on:
+  - workflow_dispatch
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Pass
+        run: echo "The test has passed"
