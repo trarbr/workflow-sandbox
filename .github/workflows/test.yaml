@@ -1,9 +1,9 @@
-name: Hello World
+name: Test
 on:
   - workflow_dispatch
 
 jobs:
-  hello-world:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
