@@ -1,0 +1,19 @@
+name: Post-test workflow
+
+on:
+  workflow_run:
+    workflows: ["Test"]
+    types:
+      - completed
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print information pertaining to job
+        run: |
+          echo "${{ toJson(github.event) }}"
