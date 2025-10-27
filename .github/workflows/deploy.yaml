@@ -4,9 +4,22 @@ on:
   - workflow_dispatch
 
 jobs:
+  pre-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run pre-deploy
+        run: echo "The pre-deploy checks have passed"
+
   deploy:
     runs-on: ubuntu-latest
     environment: production
     steps:
       - name: Run deploy
         run: echo "The deploy has been executed"
+
+  post-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Run post-deploy
+        run: echo "The post-deploy tasks have been completed"
